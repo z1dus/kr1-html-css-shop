@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Контактная информация учебного интернет-магазина.">
+  <meta name="description" content="Контактная информация и форма обратной связи магазина компьютерных комплектующих TechParts Shop.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Учебный интернет-магазин">
-  <meta property="og:description" content="Учебный frontend-проект интернет-магазина.">
+  <meta property="og:title" content="Контакты — TechParts Shop">
+  <meta property="og:description" content="Учебный frontend-проект интернет-магазина компьютерных деталей.">
   <meta property="og:image" content="https://z1dus.github.io/kr1-html-css-shop/images/preview.jpg">
-  <title>Контакты — Учебный интернет-магазин</title>
+  <title>Контакты — TechParts Shop</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">TechParts Shop</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
@@ -22,7 +23,6 @@
           <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#advantages">Преимущества</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="index.html#contacts">Обратная связь</a></li>
         </ul>
       </nav>
     </div>
@@ -34,32 +34,64 @@
       <span class="breadcrumbs__current">Контакты</span>
     </nav>
 
-    <section class="section">
-      <h1 class="section__title">Контакты</h1>
-      <p class="section__text">
-        Здесь размещается контактная информация учебного интернет-магазина.
-      </p>
-      <ul class="section__contacts-list contacts-list">
-        <li class="contacts-list__item">Телефон: +7 (900) 000-00-00</li>
-        <li class="contacts-list__item">E-mail: info@example.com</li>
-        <li class="contacts-list__item">Адрес: г. Москва, учебный проект</li>
-      </ul>
-    </section>
+    <h1 class="breadcrumbs" style="font-size: 28px; font-weight: bold; margin-bottom: var(--space-md); color: var(--color-text);">Наши контакты</h1>
 
-    <section class="section" id="feedback">
-      <h2 class="section__title">Обратная связь</h2>
-      <p class="section__text">
-        Для отправки заявки используйте форму в модальном окне на главной странице.
-      </p>
-      <a class="button button--primary" href="index.html#contacts">Перейти к форме</a>
-    </section>
+    <div class="catalog-layout">
+      
+      <!-- Блок с контактной информацией -->
+      <aside class="catalog-layout__filters">
+        <div class="catalog-filters">
+          <h2 class="catalog-filters__title" style="font-size: 20px; margin-bottom: var(--space-sm);">PC Master HQ</h2>
+          <ul class="advantages-list" style="list-style: none; padding-left: 0; margin: 0;">
+            <li class="advantages-list__item"><strong>Телефон:</strong> +7 (495) 777-77-77</li>
+            <li class="advantages-list__item"><strong>E-mail:</strong> info@techparts-shop.ru</li>
+            <li class="advantages-list__item"><strong>Адрес:</strong> г. Москва, ул. Индустриального Программирования, д. 10</li>
+          </ul>
+          <p style="color: var(--color-muted); font-size: 14px; margin-top: var(--space-md); margin-bottom: 0;">
+            График работы: Пн-Вс с 10:00 до 21:00 без выходных.
+          </p>
+        </div>
+      </aside>
+
+      <!-- Обязательная форма обратной связи прямо в контенте страницы (Требование КР №1) -->
+      <section class="catalog-layout__products catalog-products">
+        <div class="form-container" style="max-width: 100%; margin: 0;">
+          <h2 class="catalog-products__title" style="margin-top: 0; font-size: 22px;">Написать руководству</h2>
+          
+          <form class="order-form" id="contacts-form" action="#" method="post" novalidate>
+            <div class="order-form__field">
+              <label class="order-form__label" for="contact-name">Ваше имя</label>
+              <input class="order-form__input" id="contact-name" name="name" type="text" placeholder="Введите имя" required>
+            </div>
+            
+            <div class="order-form__field">
+              <label class="order-form__label" for="contact-email">Ваш E-mail</label>
+              <input class="order-form__input" id="contact-email" name="email" type="email" placeholder="example@mail.ru" required>
+            </div>
+            
+            <div class="order-form__field">
+              <label class="order-form__label" for="contact-msg">Сообщение</label>
+              <textarea class="order-form__textarea" id="contact-msg" name="message" rows="4" placeholder="Введите ваш вопрос или отзыв..." required></textarea>
+            </div>
+            
+            <button class="button button--primary" type="submit" style="width: 100%;">Отправить сообщение</button>
+          </form>
+          
+          <p class="success-message" id="contacts-success-message" hidden>Спасибо за обращение! Ответ придет в течение суток.</p>
+        </div>
+      </section>
+
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+      <p>&copy; 2026 TechParts Shop. Все права защищены.</p>
+      <p>Дисциплина: Фронтенд и бэкенд разработка | Преподаватель: Загородних Н.А.</p>
     </div>
   </footer>
+  <!-- Кнопка возврата наверх -->
+<a class="scroll-top-btn" href="#" aria-label="Вернуться наверх страницы">↑</a>
+
 </body>
 </html>
