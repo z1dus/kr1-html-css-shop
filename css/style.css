@@ -211,6 +211,18 @@ html {
   align-self: flex-start;
 }
 
+.product-card--disabled {
+  opacity: 0.65; /* Карточка слегка блекнет */
+  filter: grayscale(20%); /* Цвета становятся чуть спокойнее */
+  border-color: #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.product-card--disabled:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 /* ==========================================
    Макет каталога (Позиционирование sticky)
    ========================================== */
@@ -238,7 +250,8 @@ html {
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
   position: sticky;
-  top: 110px;
+  top: 20px;
+  align-self: start;
 }
 
 .catalog-filters__title {
@@ -283,6 +296,7 @@ html {
   border-radius: var(--radius-sm);
   font: inherit;
 }
+
 
 /* ==========================================
    Страница одного товара (product.html)
@@ -423,12 +437,15 @@ html {
   outline-offset: 3px;
 }
 
-.button:disabled,
-.button--disabled {
-  opacity: 0.6;
+.button--disabled,
+.button:disabled {
+  background-color: #cccccc !important;
+  border-color: #cccccc !important;
+  color: #666666 !important;
   cursor: not-allowed;
+  box-shadow: none !important;
+  transform: none !important;
 }
-
 /* ДОБАВЛЕНО: Фиксированная кнопка «Наверх» (Повышенный уровень) */
 .scroll-top-btn {
   position: fixed;
