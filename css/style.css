@@ -237,7 +237,7 @@ html {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
-  position: sticky; /* Требование КР: липкий блок фильтра при скролле */
+  position: sticky;
   top: 110px;
 }
 
@@ -576,4 +576,30 @@ color: var(--color-muted);
 .scroll-top-btn:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+/* 1. Ограничиваем максимальную ширину всей карточки товара на странице */
+.product-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Делим на 2 равные колонки: слева фото, справа текст */
+  gap: var(--space-xl);
+  max-width: 900px; /* Задаем предел: карточка не расползется шире 900px */
+  margin: var(--space-lg) auto; /* Центрируем всю карточку на странице */
+}
+
+/* 2. Задаем жесткие рамки для контейнера картинки */
+.product-details__image-box {
+  max-width: 450px; /* Картинка с оберткой не будет шире 450px */
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  overflow: hidden; /* Чтобы картинка не вылезала за скругленные углы */
+}
+
+/* 3. Заставляем саму картинку идеально заполнить этот контейнер */
+.product-details__image-box img {
+  display: block;
+  width: 100%; /* Картинка займет ровно 100% от ширины контейнера (450px) */
+  height: 100%;
+  object-fit: cover; /* Картинка аккуратно впишется без искажения пропорций */
 }
